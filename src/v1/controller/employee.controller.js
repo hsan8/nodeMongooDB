@@ -2,6 +2,12 @@ const { newEmployee, getAllEmployee, getEmployeeById } = require("../service/emp
 const httpRespondCode = require("../Util/httpStatusCode.status");
 const Employee = require("../model/employee.model");
 class employeeController {
+  /**
+   *
+   * @param {Request} req
+   * @param {Response} res
+   * @returns
+   */
   static async creat(req, res) {
     try {
       const emp = new Employee({
@@ -21,6 +27,12 @@ class employeeController {
       return res.status(httpRespondCode.INTERNAL_ERROR_SERVER).send({ error: "error found during this request" });
     }
   }
+  /**
+   *
+   * @param {Request} req
+   * @param {Response} res
+   * @returns
+   */
   static async getAll(req, res) {
     try {
       const page = req.params.page;
@@ -33,6 +45,12 @@ class employeeController {
       return res.status(httpRespondCode.INTERNAL_ERROR_SERVER).send({ error: "error found during this request" });
     }
   }
+  /**
+   *
+   * @param {Request} req
+   * @param {Response} res
+   * @returns
+   */
   static async getById(req, res) {
     try {
       const response = await getEmployeeById(Employee, req.params.id);
