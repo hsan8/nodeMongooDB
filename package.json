@@ -1,0 +1,30 @@
+{
+  "name": "code_challange",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsan8/nodeMongooDB.git"
+  },
+  "author": "Dhaouadi Hassen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hsan8/nodeMongooDB/issues"
+  },
+  "homepage": "https://github.com/hsan8/nodeMongooDB#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongodb": "^4.5.0",
+    "mongoose": "^6.3.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
