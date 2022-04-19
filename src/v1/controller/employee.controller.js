@@ -23,7 +23,9 @@ class employeeController {
   }
   static async getAll(req, res) {
     try {
-      const response = await getAllEmployee(Employee);
+      const page = req.params.page;
+      const name = req.params.name;
+      const response = await getAllEmployee(Employee, page, name);
       return response.status == "success"
         ? res.status(httpRespondCode.OK).send({ data: response.message })
         : res.status(httpRespondCode.BAD_REQUEST).send({ error: response.message });
@@ -32,14 +34,15 @@ class employeeController {
     }
   }
   static async getById(req, res) {
-    const response = await getEmployeeById(Employee, req.params.id);
-    console.log(response);
-    return response.status == "success"
-      ? res.status(httpRespondCode.OK).send({ data: response.message })
-      : res.status(httpRespondCode.BAD_REQUEST).send({ error: response.message });
-    /*} catch (error) {
+    try {
+      const response = await getEmployeeById(Employee, req.params.id);
+      console.log(response);
+      return response.status == "success"
+        ? res.status(httpRespondCode.OK).send({ data: response.message })
+        : res.status(httpRespondCode.BAD_REQUEST).send({ error: response.message });
+    } catch (error) {
       return res.status(httpRespondCode.INTERNAL_ERROR_SERVER).send({ error: "error found during this request" });
-    }*/
+    }
   }
 }
 module.exports = employeeController;

@@ -27,7 +27,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.send("error");
+  res.send({ error: "Not found 404" });
 });
 
 module.exports = app;
