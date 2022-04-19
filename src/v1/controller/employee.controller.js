@@ -54,7 +54,7 @@ class employeeController {
     }
   }
   static async update(req, res) {
-    const id = { _id: req.body.id };
+    const id = { _id: req.params.id };
     const payload = req.body;
     const response = await updateEmployeeDetails(Employee, id, payload);
     return response.status == "success"
