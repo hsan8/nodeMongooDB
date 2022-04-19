@@ -56,5 +56,14 @@ class employeeController {
       return { status: "failed", message: error };
     }
   }
+  static async updateEmployeeDetails(emp, id, playload) {
+    try {
+      const result = await Character.findOneAndUpdate(id, playload);
+
+      return { status: "success", message: result };
+    } catch (error) {
+      return { status: "failed", message: error };
+    }
+  }
 }
 module.exports = employeeController;
