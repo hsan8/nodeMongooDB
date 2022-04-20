@@ -56,9 +56,30 @@ class employeeController {
       return { status: "failed", message: error };
     }
   }
+  /**
+   *
+   * @param {Employee} emp
+   * @param {String} id
+   * @param {Object} playload
+   * @returns
+   */
   static async updateEmployeeDetails(emp, id, playload) {
     try {
       const result = await emp.findOneAndUpdate(id, playload);
+      return { status: "success", message: result };
+    } catch (error) {
+      return { status: "failed", message: error };
+    }
+  }
+  /**
+   *
+   * @param {Employee} emp
+   * @param {String} id
+   * @returns
+   */
+  static async deleteEmployee(emp, id) {
+    try {
+      const result = await emp.find({ _id: id }).remove();
       return { status: "success", message: result };
     } catch (error) {
       return { status: "failed", message: error };
